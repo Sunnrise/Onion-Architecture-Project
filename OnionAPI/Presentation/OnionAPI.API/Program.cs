@@ -1,5 +1,6 @@
 using OnionAPI.Persistence;
 using OnionAPI.Application;
+using OnionAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Configuration
 
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+builder.Services.AddCustomMapper();
 
 var app = builder.Build();
 
