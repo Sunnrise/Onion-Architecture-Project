@@ -12,7 +12,7 @@ using OnionAPI.Persistence.Context;
 namespace OnionAPI.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240721191318_mig1")]
+    [Migration("20240722162747_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -24,21 +24,6 @@ namespace OnionAPI.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("OnionAPI.Domain.Entities.Brand", b =>
                 {
@@ -67,23 +52,23 @@ namespace OnionAPI.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5889),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(677),
                             IsDeleted = false,
-                            Name = "Books, Jewelery & Music"
+                            Name = "Shoes & Toys"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5896),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(684),
                             IsDeleted = false,
-                            Name = "Shoes"
+                            Name = "Garden"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5906),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(700),
                             IsDeleted = true,
-                            Name = "Shoes & Games"
+                            Name = "Computers, Movies & Garden"
                         });
                 });
 
@@ -119,7 +104,7 @@ namespace OnionAPI.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8829),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2430),
                             IsDeleted = false,
                             Name = "Electric",
                             ParentId = 0,
@@ -128,7 +113,7 @@ namespace OnionAPI.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8831),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2432),
                             IsDeleted = false,
                             Name = "Fashion",
                             ParentId = 0,
@@ -137,7 +122,7 @@ namespace OnionAPI.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8832),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2434),
                             IsDeleted = false,
                             Name = "Computer",
                             ParentId = 1,
@@ -146,7 +131,7 @@ namespace OnionAPI.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8834),
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2435),
                             IsDeleted = false,
                             Name = "Women",
                             ParentId = 2,
@@ -190,28 +175,28 @@ namespace OnionAPI.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9420),
-                            Description = "Est in animi rerum libero.",
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7398),
+                            Description = "Placeat et veritatis dolorum est.",
                             IsDeleted = false,
-                            Title = "Hic."
+                            Title = "Et."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9455),
-                            Description = "Sequi commodi reiciendis omnis et.",
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7428),
+                            Description = "Et aliquid voluptas autem eaque.",
                             IsDeleted = true,
-                            Title = "Quia aut."
+                            Title = "Nihil natus."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9485),
-                            Description = "Est facilis consequatur explicabo quasi.",
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7456),
+                            Description = "Quia autem hic quam iusto.",
                             IsDeleted = false,
-                            Title = "Voluptatem."
+                            Title = "Dolorem."
                         });
                 });
 
@@ -257,39 +242,39 @@ namespace OnionAPI.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 162, DateTimeKind.Utc).AddTicks(4193),
-                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-                            Discount = 7.49920707390150m,
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 173, DateTimeKind.Utc).AddTicks(6501),
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Discount = 8.180205667256060m,
                             IsDeleted = false,
-                            Price = 383.87m,
-                            Title = "Sleek Concrete Fish"
+                            Price = 330.54m,
+                            Title = "Ergonomic Wooden Salad"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2024, 7, 21, 19, 13, 18, 162, DateTimeKind.Utc).AddTicks(4216),
-                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-                            Discount = 6.904861668645830m,
+                            CreatedDate = new DateTime(2024, 7, 22, 16, 27, 47, 173, DateTimeKind.Utc).AddTicks(6526),
+                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                            Discount = 9.299734183535780m,
                             IsDeleted = false,
-                            Price = 960.35m,
-                            Title = "Unbranded Fresh Chicken"
+                            Price = 433.45m,
+                            Title = "Handcrafted Plastic Car"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("OnionAPI.Domain.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("OnionAPI.Domain.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.HasOne("OnionAPI.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("OnionAPI.Domain.Entities.Detail", b =>
@@ -314,9 +299,35 @@ namespace OnionAPI.Persistence.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("OnionAPI.Domain.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("OnionAPI.Domain.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnionAPI.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("OnionAPI.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("OnionAPI.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

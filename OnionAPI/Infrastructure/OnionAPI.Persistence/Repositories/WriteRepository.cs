@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OnionAPI.Application.Interfaces.Repositories;
 using OnionAPI.Domain.Common;
+using OnionAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace OnionAPI.Persistence.Repositories
             await Task.Run(() => Table.Remove(entity));
 
         }
+
+        public async Task HardDeleteRangeAsync(IList<T> entities)
+        {
+            await Task.Run(() => Table.RemoveRange(entities));
+        }
+
         public async Task<T> UpdateAsync(T entity)
         {
             await Task.Run(() => Table.Update(entity));
