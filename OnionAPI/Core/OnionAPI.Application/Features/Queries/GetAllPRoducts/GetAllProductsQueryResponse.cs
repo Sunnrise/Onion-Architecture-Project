@@ -1,4 +1,5 @@
-﻿using OnionAPI.Domain.Entities;
+﻿using OnionAPI.Application.DTOs;
+using OnionAPI.Domain.Entities;
 
 namespace OnionAPI.Application.Features.Queries.GetAllPRoducts
 {
@@ -9,5 +10,7 @@ namespace OnionAPI.Application.Features.Queries.GetAllPRoducts
         public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
+
+        public BrandDto Brand { get; set; }
     }
 }
