@@ -94,24 +94,24 @@ namespace OnionAPI.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryProduct",
+                name: "ProductCategories",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
+                        name: "FK_ProductCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
+                        name: "FK_ProductCategories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -122,9 +122,9 @@ namespace OnionAPI.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5889), false, "Books, Jewelery & Music" },
-                    { 2, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5896), false, "Shoes" },
-                    { 3, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(5906), true, "Shoes & Games" }
+                    { 1, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(677), false, "Shoes & Toys" },
+                    { 2, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(684), false, "Garden" },
+                    { 3, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(700), true, "Computers, Movies & Garden" }
                 });
 
             migrationBuilder.InsertData(
@@ -132,10 +132,10 @@ namespace OnionAPI.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name", "ParentId", "Priority" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8829), false, "Electric", 0, 1 },
-                    { 2, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8831), false, "Fashion", 0, 2 },
-                    { 3, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8832), false, "Computer", 1, 1 },
-                    { 4, new DateTime(2024, 7, 21, 19, 13, 18, 155, DateTimeKind.Utc).AddTicks(8834), false, "Women", 2, 1 }
+                    { 1, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2430), false, "Electric", 0, 1 },
+                    { 2, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2432), false, "Fashion", 0, 2 },
+                    { 3, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2434), false, "Computer", 1, 1 },
+                    { 4, new DateTime(2024, 7, 22, 16, 27, 47, 167, DateTimeKind.Utc).AddTicks(2435), false, "Women", 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -143,9 +143,9 @@ namespace OnionAPI.Persistence.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Description", "IsDeleted", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9420), "Est in animi rerum libero.", false, "Hic." },
-                    { 2, 3, new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9455), "Sequi commodi reiciendis omnis et.", true, "Quia aut." },
-                    { 3, 4, new DateTime(2024, 7, 21, 19, 13, 18, 158, DateTimeKind.Utc).AddTicks(9485), "Est facilis consequatur explicabo quasi.", false, "Voluptatem." }
+                    { 1, 1, new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7398), "Placeat et veritatis dolorum est.", false, "Et." },
+                    { 2, 3, new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7428), "Et aliquid voluptas autem eaque.", true, "Nihil natus." },
+                    { 3, 4, new DateTime(2024, 7, 22, 16, 27, 47, 168, DateTimeKind.Utc).AddTicks(7456), "Quia autem hic quam iusto.", false, "Dolorem." }
                 });
 
             migrationBuilder.InsertData(
@@ -153,18 +153,18 @@ namespace OnionAPI.Persistence.Migrations
                 columns: new[] { "Id", "BrandId", "CreatedDate", "Description", "Discount", "IsDeleted", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 7, 21, 19, 13, 18, 162, DateTimeKind.Utc).AddTicks(4193), "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", 7.49920707390150m, false, 383.87m, "Sleek Concrete Fish" },
-                    { 2, 3, new DateTime(2024, 7, 21, 19, 13, 18, 162, DateTimeKind.Utc).AddTicks(4216), "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", 6.904861668645830m, false, 960.35m, "Unbranded Fresh Chicken" }
+                    { 1, 1, new DateTime(2024, 7, 22, 16, 27, 47, 173, DateTimeKind.Utc).AddTicks(6501), "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", 8.180205667256060m, false, 330.54m, "Ergonomic Wooden Salad" },
+                    { 2, 3, new DateTime(2024, 7, 22, 16, 27, 47, 173, DateTimeKind.Utc).AddTicks(6526), "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", 9.299734183535780m, false, 433.45m, "Handcrafted Plastic Car" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
-                column: "ProductsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Details_CategoryId",
                 table: "Details",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_CategoryId",
+                table: "ProductCategories",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -177,16 +177,16 @@ namespace OnionAPI.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
-
-            migrationBuilder.DropTable(
                 name: "Details");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "ProductCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Brands");

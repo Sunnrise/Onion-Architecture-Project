@@ -12,6 +12,7 @@ namespace OnionAPI.Persistence.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Detail> Details { get; set; }
+        public DbSet<ProductCategory>ProductCategories { get; set; }
         public AppDbContext()
         {
             

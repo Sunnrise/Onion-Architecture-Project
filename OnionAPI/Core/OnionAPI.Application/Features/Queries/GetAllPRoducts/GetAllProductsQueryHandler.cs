@@ -17,7 +17,7 @@ namespace OnionAPI.Application.Features.Queries.GetAllPRoducts
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
-
+         
         public async Task<IList<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
             var products= await unitOfWork.GetReadRepository<Product>().GetAllAsync(include:x=> x.Include(b=>b.Brand));

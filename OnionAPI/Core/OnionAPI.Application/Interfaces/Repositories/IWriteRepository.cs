@@ -1,4 +1,5 @@
 ﻿using OnionAPI.Domain.Common;
+using OnionAPI.Domain.Entities;
 
 namespace OnionAPI.Application.Interfaces.Repositories
 {
@@ -8,5 +9,6 @@ namespace OnionAPI.Application.Interfaces.Repositories
         Task AddRangeAsync(IList<T> entities);
         Task<T> UpdateAsync(T entity);
         Task HardDeleteAsync(T entity);
+        Task HardDeleteRangeAsync(IList<T> entities);
     }
 }
