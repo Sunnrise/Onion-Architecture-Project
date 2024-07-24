@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnionAPI.Application.Features.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
     {
         private readonly IUnitOfWork unitOfWork;    
         public CreateProductCommandHandler(IUnitOfWork unitOfWork)
@@ -19,7 +19,7 @@ namespace OnionAPI.Application.Features.Commands.CreateProduct
 
         public IUnitOfWork UnitOfWork { get; }
 
-        public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             Product product = new Product(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
             await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
@@ -33,6 +33,7 @@ namespace OnionAPI.Application.Features.Commands.CreateProduct
                     });
                 await unitOfWork.SaveAsync();
             }
+           return Unit.Value;
         }
     }
 }
