@@ -39,8 +39,7 @@ namespace OnionAPI.Application.Exceptions
 
             List<string> errors = new List<string> 
             { 
-                $"Error Message : {exception.Message}",
-                $"Message Detail :{exception.InnerException?.ToString()}"
+                $"Error Message : {exception.Message}"
             };
             return httpContext.Response.WriteAsync(new ExceptionModel
             {
