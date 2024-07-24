@@ -6,6 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
+using System.Globalization;
+using MediatR;
+using OnionAPI.Application.Behaviours;
 
 namespace OnionAPI.Application
 {
@@ -18,6 +22,11 @@ namespace OnionAPI.Application
             services.AddTransient<ExceptionMiddleware>();
 
             services.AddMediatR(configuration=> configuration.RegisterServicesFromAssembly(assembly));
+
+            services.AddValidatorsFromAssembly(assembly);
+
+            ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("en");
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehaviour<,>));
         }
     }
 }
