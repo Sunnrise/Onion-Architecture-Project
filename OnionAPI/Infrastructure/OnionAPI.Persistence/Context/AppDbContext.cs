@@ -1,12 +1,13 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OnionAPI.Domain.Entities;
 using System.Reflection;
 
 namespace OnionAPI.Persistence.Context
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext: IdentityDbContext<User,Role,Guid>
     {
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
