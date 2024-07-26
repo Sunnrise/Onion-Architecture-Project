@@ -1,5 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using OnionAPI.Application.Bases;
 using OnionAPI.Application.Features.Rules;
+using OnionAPI.Application.Interfaces.AutoMapper;
 using OnionAPI.Application.Interfaces.UnitOfWorks;
 using OnionAPI.Domain.Entities;
 using System;
@@ -10,14 +13,12 @@ using System.Threading.Tasks;
 
 namespace OnionAPI.Application.Features.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
+    public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommandRequest,Unit>
     {
-        private readonly IUnitOfWork unitOfWork;
         private readonly ProductRules productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
+        public CreateProductCommandHandler(ProductRules productRules,IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            this.unitOfWork = unitOfWork;
             this.productRules = productRules;
         }
 
