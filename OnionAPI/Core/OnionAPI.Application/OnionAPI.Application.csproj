@@ -20,4 +20,8 @@
     <ProjectReference Include="..\OnionAPI.Domain\OnionAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\Queries\" />
+  </ItemGroup>
+
 </Project>
