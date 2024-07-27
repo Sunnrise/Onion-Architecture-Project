@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnionAPI.Application.Features.Exceptions
 {
-    public class ProductTitleMustNotBeSameException: BaseExceptions
+    public class ProductTitleMustNotBeSameException: BaseException
     {
         public ProductTitleMustNotBeSameException(): base("This title has already exist"){ }
     }
