@@ -20,5 +20,10 @@ namespace OnionAPI.Application.Features.Auth.Rules
             }
             return Task.CompletedTask;
         }
+        public Task EmailOrPasswordShouldNotBeInValid(User? user, bool checkPassword)
+        {
+            if(user is null|| !checkPassword) throw new EmailOrPasswordShouldNotBeInvalidException();
+            return Task.CompletedTask;
+        }
     }
 }
