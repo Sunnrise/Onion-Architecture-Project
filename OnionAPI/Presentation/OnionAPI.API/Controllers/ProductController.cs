@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnionAPI.Application.Features.Commands.CreateProduct;
@@ -19,7 +20,10 @@ namespace OnionAPI.API.Controllers
             this.mediator = mediator;
         }
 
+
+        
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await mediator.Send(new GetAllProductsQueryRequest());

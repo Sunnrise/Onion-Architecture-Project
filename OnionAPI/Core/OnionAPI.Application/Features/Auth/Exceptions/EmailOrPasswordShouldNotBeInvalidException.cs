@@ -4,7 +4,6 @@ namespace OnionAPI.Application.Features.Auth.Exceptions
 {
     public class EmailOrPasswordShouldNotBeInvalidException: BaseException
     {
-        public EmailOrPasswordShouldNotBeInvalidException() : base("Username or password not invalid") { }
-        
+        public EmailOrPasswordShouldNotBeInvalidException() : base("Username or password not invalid") { }    
     }
 }
