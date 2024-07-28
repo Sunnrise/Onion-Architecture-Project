@@ -34,7 +34,7 @@ namespace OnionAPI.Application.Features.Auth.Command.Login
              User user = await userManager.FindByEmailAsync(request.Email);
             bool checkPassword = await userManager.CheckPasswordAsync(user, request.Password);
 
-            await authRules.EmailOrPasswordShouldNotBeInValid(user, checkPassword);
+            await authRules.EmailAddressShouldBeValid(user, checkPassword);
 
             IList<string> roles = await userManager.GetRolesAsync(user);
 
