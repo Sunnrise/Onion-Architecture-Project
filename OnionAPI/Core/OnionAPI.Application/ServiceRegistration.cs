@@ -35,7 +35,7 @@ namespace OnionAPI.Application
 
         public static IServiceCollection AddRulesFromAssemblyContaining(this IServiceCollection services, Assembly assembly, Type type)
         {
-            var types = assembly.GetTypes().Where(x => x.IsSubclassOf(type)&& type is not null).ToList();
+            var types = assembly.GetTypes().Where(x => x.IsSubclassOf(type)&& type !=x).ToList();
             foreach (var item in types)
             {
                 services.AddTransient(item);
